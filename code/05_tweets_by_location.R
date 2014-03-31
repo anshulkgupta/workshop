@@ -1,3 +1,5 @@
+#Anshul trying his hand at R
+
 # loading library and OAuth token
 library(streamR)
 load("my_oauth")
