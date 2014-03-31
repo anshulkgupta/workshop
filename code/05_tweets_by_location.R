@@ -2,10 +2,10 @@
 
 # loading library and OAuth token
 library(streamR)
-load("my_oauth")
+load("twitteR_credentials")
 
 # capturing 2 minutes of tweets sent from Africa
-filterStream(file.name="tweets_africa.json", locations=c(-20,-37, 52, 35), timeout=120, oauth=my_oauth)
+filterStream(file.name="tweets_africa.json", locations=c(-20,-37, 52, 35), timeout=120, oauth=twitteR_credentials)
 # parsing tweets into dataframe
 tweets.df <- parseTweets("tweets_africa.json", verbose = TRUE)
 
@@ -31,7 +31,7 @@ ggplot(map.data) + geom_map(aes(map_id = region), map = map.data, fill = "white"
 
 
 # now the same for tweets coming from Korea
-filterStream(file.name="tweets_korea.json", locations=c(124, 34, 131, 42), timeout=120, oauth=my_oauth)
+filterStream(file.name="tweets_korea.json", locations=c(124, 34, 131, 42), timeout=120, oauth=twitteR_credentials)
 # parsing tweets into dataframe
 tweets.df <- parseTweets("tweets_korea.json", verbose = TRUE)
 
