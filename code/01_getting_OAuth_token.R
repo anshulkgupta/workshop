@@ -15,7 +15,7 @@ if(doInstall){install.packages("Rstem", repos = "http://www.omegahat.org/R", typ
 ## Step 5: Agree to user conditions and enter captcha.
 ## Step 6: copy consumer key and consumer secret and paste below
 
-library(ROAuth)
+library(twitteR)
 requestURL <- "https://api.twitter.com/oauth/request_token"
 accessURL <- "https://api.twitter.com/oauth/access_token"
 authURL <- "https://api.twitter.com/oauth/authorize"
@@ -26,25 +26,14 @@ my_oauth <- OAuthFactory$new(consumerKey=consumerKey,
   accessURL=accessURL, authURL=authURL)
 
 ## run this line and go to the URL that appears on screen
-my_oauth$handshake(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl"))
+# my_oauth$handshake(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl"))
 
-#TESTING
-
-#You should get...
-Cred$handshake(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl") )   
-To enable the connection, please direct your web browser to: 
-http://api.twitter.com/oauth/authorize?oauth_token=youraccesstoken
-When complete, record the PIN given to you and provide it here: 
-
-#Final step to register connections
-registerTwitterOAuth(Cred)
+my_oauth$handshake()
+registerTwitterOAuth(my_oauth)
 #TESTING
 
 ## Setting working folder
-## From windows machine in lab computer:
-# setwd("H:\\workshop\\")
-## From Mac computer, something like...
-setwd("~/Dropbox/NYU/workshop")
+setwd("~/Documents/Github Code/workshop/code")
 
 ## now you can save oauth token for use in future sessions with twitteR or streamR
 save(my_oauth, file="my_oauth")

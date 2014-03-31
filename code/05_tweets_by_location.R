@@ -2,10 +2,10 @@
 
 # loading library and OAuth token
 library(streamR)
-load("twitteR_credentials")
+load("my_oauth")
 
 # capturing 2 minutes of tweets sent from Africa
-filterStream(file.name="tweets_africa.json", locations=c(-20,-37, 52, 35), timeout=120, oauth=twitteR_credentials)
+filterStream(file.name="tweets_africa.json", locations=c(-20,-37, 52, 35), timeout=120, oauth=my_oauth)
 # parsing tweets into dataframe
 tweets.df <- parseTweets("tweets_africa.json", verbose = TRUE)
 
