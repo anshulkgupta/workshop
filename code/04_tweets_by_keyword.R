@@ -2,8 +2,12 @@
 library(streamR)
 load("my_oauth")
 
+# Set the two terms
+term1 <- "AAP"
+term2 <- "Kejriwal"
+
 # capturing 3 minutes of tweets mentioning obama or biden
-filterStream(file.name="tweets_keyword.json", track=c("obama", "biden"), timeout=180, oauth=my_oauth)
+filterStream(file.name="tweets_keyword.json", track=c(term1, term2), timeout=180, oauth=my_oauth)
 # parsing tweets into dataframe
 tweets <- parseTweets("tweets_keyword.json", verbose = TRUE)
 
@@ -54,8 +58,8 @@ pos.words <- lexicon$word[lexicon$polarity=="positive"]
 neg.words <- lexicon$word[lexicon$polarity=="negative"]
 
 # applying classifier function
-classifier(tweets, pos.words, neg.words, keyword="obama")
-classifier(tweets, pos.words, neg.words, keyword="biden")
+classifier(tweets, pos.words, neg.words, keyword=term1)
+classifier(tweets, pos.words, neg.words, keyword=term2)
 
 
 

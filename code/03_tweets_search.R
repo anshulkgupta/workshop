@@ -7,9 +7,6 @@ registerTwitterOAuth(my_oauth)
 searchTwitter("obama")
 searchTwitter("#PoliSciNSF")
 
-# from Windows machine...
-searchTwitter("#PoliSciNSF", cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl"))
-
 # search is limited to an undetermined number of recent tweets
 tweets <- searchTwitter("nyu", n=2000)
 
