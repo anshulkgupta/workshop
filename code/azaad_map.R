@@ -3,7 +3,7 @@
 library(streamR)
 #load("my_oauth")
 
-tweets.df <- parseTweets("data/tweets_compilation.json", verbose = TRUE)
+tweets.df <- parseTweets("data/tweets_d1.json", verbose = TRUE)
 
 # quick map to visualize where tweets are coming from
 library(ggplot2)
